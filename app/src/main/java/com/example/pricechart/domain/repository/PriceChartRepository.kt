@@ -1,6 +1,5 @@
-package com.example.pricechart.data.repository
+package com.example.pricechart.domain.repository
 
-import com.example.pricechart.data.model.BarListDto
 import com.example.pricechart.domain.entity.BarListDo
 import com.example.pricechart.presentation.LoadDataState
 import kotlinx.coroutines.flow.Flow

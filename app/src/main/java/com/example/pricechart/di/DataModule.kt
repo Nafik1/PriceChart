@@ -2,7 +2,7 @@ package com.example.pricechart.di
 
 import com.example.pricechart.data.network.ApiFactory
 import com.example.pricechart.data.network.ApiService
-import com.example.pricechart.data.repository.PriceChartRepository
+import com.example.pricechart.domain.repository.PriceChartRepository
 import com.example.pricechart.data.repository.PriceChartRepositoryImpl
 import dagger.Binds
 import dagger.Module

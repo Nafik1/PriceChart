@@ -1,6 +1,7 @@
 package com.example.pricechart.presentation
 
 import android.util.Log
+import androidx.core.content.PackageManagerCompat.LOG_TAG
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pricechart.domain.entity.BarListDo
@@ -24,8 +25,12 @@ class ChartViewModel @Inject constructor(
     private val _state = MutableStateFlow<ScreenState>(ScreenState())
     val state: StateFlow<ScreenState> = _state.asStateFlow()
 
+    companion object {
+        private const val LOG_TAG = "ChartViewModel"
+    }
+
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-        Log.d("ChartViewModel", "Exception caught: $throwable")
+        Log.d(LOG_TAG, "Exception caught: $throwable")
     }
 
     init {
@@ -51,6 +56,14 @@ class ChartViewModel @Inject constructor(
 
     fun updateState(state: ScreenState) {
         _state.value = state
+    }
+
+    fun onRetryClick() {
+        viewModelScope.launch {
+            changeTimeFrameUseCase.invoke(_state.value.timeFrame.value).collect {
+                _state.value = it.mapToScreenState(state.value)
+            }
+        }
     }
 
 

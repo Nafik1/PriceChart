@@ -1,9 +1,9 @@
 package com.example.pricechart.data.repository
 
-import com.example.pricechart.data.model.BarListDto
 import com.example.pricechart.data.network.ApiService
 import com.example.pricechart.data.utils.Mapper
 import com.example.pricechart.domain.entity.BarListDo
+import com.example.pricechart.domain.repository.PriceChartRepository
 import com.example.pricechart.presentation.LoadDataState
 import com.example.pricechart.presentation.asResult
 import kotlinx.coroutines.flow.Flow
