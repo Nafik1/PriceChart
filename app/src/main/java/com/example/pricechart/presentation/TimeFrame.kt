@@ -1,5 +1,6 @@
 package com.example.pricechart.presentation
 
+
 enum class TimeFrame(val value: String) {
     MIN_5("5/minute"),
     MIN_15("15/minute"),
